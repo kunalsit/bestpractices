@@ -1,0 +1,4 @@
+//Neo4j (Delete all Indexes in one go)
+
+CALL apoc.schema.assert({},{},true) YIELD label, key
+RETURN *
