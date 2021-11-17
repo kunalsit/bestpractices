@@ -1,0 +1,3 @@
+// In neo4j if we want to create unique constraint on multiple properties then we can use NodeKey 
+
+CREATE CONSTRAINT ON (n:Person) ASSERT (n.firstname, n.surname) IS NODE KEY
