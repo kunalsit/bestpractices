@@ -1,0 +1,12 @@
+THis is the way or trick by which you can load any file directly to neo4j from AWS Bucket. 
+Usually we need to use boto package from Python to load data in any DB from AWS Bucket
+Below is the way by which we can Use file directly as URL in Load CSV.
+
+Step1: Just Suppose  xyz.csv file is available in ABC S3 bucket. Run the below command to create the presign URL for XYZ.csv file.
+
+aws s3 presign s3://ABC/xyz.csv
+the output of this Command would be an Url which can be accessible from anywhere on https.
+
+Step2: Once we Have the URL ready then we can simpply use the neo4j cypher to load or use in neo4j Database .
+
+LOAD CSV WITH HEADERS FROM "url generated from above command" as row return row
