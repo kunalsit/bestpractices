@@ -1,0 +1,14 @@
+// This Cypher will return all the nodes whch does not have any relationship or orphaned node.
+MATCH (n)
+WHERE NOT (n)--()
+RETURN n;
+
+//If we want to find specific label without relationship
+MATCH (n:LABEL)
+WHERE NOT (n)--()
+RETURN n;
+
+//If we want to find out perticular relationship is available on some lable or not
+MATCH (n:LABEL)
+WHERE NOT (n)-[:RELATIONSHIP]-()
+RETURN n;
