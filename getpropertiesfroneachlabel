@@ -1,0 +1,14 @@
+MATCH(n) 
+WITH LABELS(n) AS labels , KEYS(n) AS keys
+UNWIND labels AS label
+UNWIND keys AS key
+RETURN DISTINCT label, COLLECT(DISTINCT key) AS props
+ORDER BY label
+
+*******************Relationship*****************************
+
+MATCH (n)-[r]-(m)
+WITH type(r) AS type , KEYS(r) AS keys
+UNWIND keys AS key
+RETURN DISTINCT type, COLLECT(DISTINCT key) AS props
+ORDER BY type
